@@ -34,11 +34,11 @@ string funny_arrow() {
 
 string pretty_user() {
     return color("block.user.bg") ~ color("block.user.fg") ~ get_env("USER") ~ color(
-        "block.user") ~ fg(color("block.user.bg")) ~ color("block.os.bg") ~ BLOCK ~
+        "block.user") ~ color("block.user.bg", true) ~ color("block.os.bg") ~ BLOCK ~
         encode_ansi("0");
 }
 
 string pretty_os() {
     return color("block.os.bg") ~ color("block.os.fg") ~ get_os() ~ encode_ansi(
-        "0") ~ fg(color("block.os.bg")) ~ BLOCK ~ encode_ansi("0");
+        "0") ~ color("block.os.bg", true) ~ BLOCK ~ encode_ansi("0");
 }

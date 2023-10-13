@@ -12,15 +12,16 @@ string encode_ansi(string s) {
     return ansi_raw;
 }
 string fg(string c) {
-    if(c[$-1] == 'm') c = c[0..$-1];
+    // if(c[$-1] == 'm') c = c[0..$-1];
     string[] parsed = [];
-    foreach(string part; c.split("\x1b[")[1].split(";")) {
+    foreach(string part; c.split(";")) {
         if(part.length == 2 && part[0] == '4') part = "3" ~ part[1];
         parsed ~= part;
     }
-    return "\x1b[" ~ parsed.join(";") ~ "m";
+    return parsed.join(";");
 }
-string color(string s) {
+string color(string s) { return color(s, false); }
+string color(string s, bool switch_fg) {
     string col = "";
     string col_env = get_env("color." ~ s);
     if(col_env != "") col = col_env;
@@ -53,5 +54,6 @@ string color(string s) {
         col = "0";
         break;
     }
+    if(switch_fg) col = fg(col);
     return encode_ansi(col);
 }
