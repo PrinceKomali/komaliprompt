@@ -1,0 +1,10 @@
+{
+	"authors": [
+		"Komali"
+	],
+	"sourcePaths":["src"],
+	"copyright": "Copyright © 2023, Komali",
+	"description": "Komali's Shell Prompt",
+	"license": "proprietary",
+	"name": "prompt"
+}
