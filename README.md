@@ -21,7 +21,7 @@ precmd()  {
 - bash
 ```bash
 # ~/.bashrc
-prompt()  {
+prompt() {
     PS1=$(/path/to/prompt --bash)
 }
 ```
@@ -29,7 +29,7 @@ prompt()  {
 ```ps1
 # $Profile
 $OutputEncoding  =  [console]::InputEncoding =  [console]::OutputEncoding =  New-Object System.Text.UTF8Encoding
-function prompt  ()  {
+function prompt() {
     path\to\prompt.exe
 }
 ```
